@@ -1,0 +1,15 @@
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+
+  <h3>Transactions</h3>
+  {{ transaction_formset.management_form }}
+
+  {% for form in transaction_formset %}
+      <div class="transaction-form">
+          {{ form.as_p }}
+      </div>
+  {% endfor %}
+
+  <button type="submit">Create Statement</button>
+</form>

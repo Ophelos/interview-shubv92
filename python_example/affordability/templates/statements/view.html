@@ -1,0 +1,17 @@
+<h1>Statement for {{ statement.statement_period }}</h1>
+
+<h2>Transactions</h2>
+
+{% if statement.transactions.all %}
+    <ul>
+        {% for transaction in statement.transactions.all %}
+            <li>
+                {{ transaction.category }}: {{ transaction.amount }} - {{ transaction.description }}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No transactions recorded for this statement.</p>
+{% endif %}
+
+<a href="{% url 'statements' %}">Back to Statements</a>

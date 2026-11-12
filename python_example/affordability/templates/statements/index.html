@@ -1,0 +1,17 @@
+<h1>Your Statements</h1>
+
+{% if statements %}
+    <ul>
+        {% for statement in statements %}
+            <li>
+                <a href="{% url 'view_statement' statement.id %}">
+                    Statement for {{ statement.statement_period }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No statements available.</p>
+{% endif %}
+
+<a href="{% url 'new_statement' %}">Create New Statement</a>
